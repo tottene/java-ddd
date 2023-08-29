@@ -5,8 +5,8 @@ import br.com.ctottene.catalog.domain.genre.GenreGateway;
 import br.com.ctottene.catalog.domain.genre.GenreID;
 import br.com.ctottene.catalog.domain.pagination.Pagination;
 import br.com.ctottene.catalog.domain.pagination.SearchQuery;
-import br.com.ctottene.catalog.infrastructure.genre.persistance.GenreJpaEntity;
-import br.com.ctottene.catalog.infrastructure.genre.persistance.GenreRepository;
+import br.com.ctottene.catalog.infrastructure.genre.persistence.GenreJpaEntity;
+import br.com.ctottene.catalog.infrastructure.genre.persistence.GenreRepository;
 import br.com.ctottene.catalog.infrastructure.utils.SpecificationUtils;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 import static org.springframework.data.jpa.domain.Specification.where;
 
@@ -76,8 +77,14 @@ public class GenreMySQLGateway implements GenreGateway {
     }
 
     @Override
-    public List<GenreID> existsByIds(Iterable<GenreID> ids) {
-        return List.of();
+    public List<GenreID> existsByIds(final Iterable<GenreID> genreIDS) {
+        /*final var ids = StreamSupport.stream(genreIDS.spliterator(), false)
+                .map(GenreID::getValue)
+                .toList();
+        return this.repository.existsByIds(ids).stream()
+                .map(GenreID::from)
+                .toList();*/
+        throw new UnsupportedOperationException();
     }
 
     private Genre save(final Genre aGenre) {

@@ -63,7 +63,7 @@ public class CategoryTest {
     public void givenAnInvalidNameLengthLessThan3_whenCallNewCategoryValidate_thenShouldReceiveError() {
         final var expectedName = "Fi ";
         final var expectedErrorCount = 1;
-        final var expectedErrorMessage = "'name' must between 3 and 255 characters";
+        final var expectedErrorMessage = "'name' must be between 3 and 255 characters";
         final var expectedDescription = "Action";
         final var expectedIsActive = true;
 
@@ -84,7 +84,7 @@ public class CategoryTest {
             Richard McClintock, um professor de latim do Hampden-Sydney College na Virginia
             """;
         final var expectedErrorCount = 1;
-        final var expectedErrorMessage = "'name' must between 3 and 255 characters";
+        final var expectedErrorMessage = "'name' must be between 3 and 255 characters";
         final var expectedDescription = "Action";
         final var expectedIsActive = true;
 

@@ -7,7 +7,7 @@ import br.com.ctottene.catalog.domain.category.CategoryGateway;
 import br.com.ctottene.catalog.domain.category.CategoryID;
 import br.com.ctottene.catalog.domain.exceptions.NotificationException;
 import br.com.ctottene.catalog.domain.genre.GenreGateway;
-import br.com.ctottene.catalog.infrastructure.genre.persistance.GenreRepository;
+import br.com.ctottene.catalog.infrastructure.genre.persistence.GenreRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

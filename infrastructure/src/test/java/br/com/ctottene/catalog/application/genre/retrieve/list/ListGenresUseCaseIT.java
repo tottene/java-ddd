@@ -4,13 +4,15 @@ import br.com.ctottene.catalog.IntegrationTest;
 import br.com.ctottene.catalog.domain.genre.Genre;
 import br.com.ctottene.catalog.domain.genre.GenreGateway;
 import br.com.ctottene.catalog.domain.pagination.SearchQuery;
-import br.com.ctottene.catalog.infrastructure.genre.persistance.GenreJpaEntity;
-import br.com.ctottene.catalog.infrastructure.genre.persistance.GenreRepository;
+import br.com.ctottene.catalog.infrastructure.genre.persistence.GenreJpaEntity;
+import br.com.ctottene.catalog.infrastructure.genre.persistence.GenreRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
+
+import static org.mockito.Mockito.*;
 
 @IntegrationTest
 public class ListGenresUseCaseIT {
@@ -63,6 +65,8 @@ public class ListGenresUseCaseIT {
                 expectedItems.size() == actualOutput.items().size()
                         && expectedItems.containsAll(actualOutput.items())
         );
+
+        verify(genreGateway).findAll(any());
     }
 
     @Test
@@ -90,5 +94,7 @@ public class ListGenresUseCaseIT {
         Assertions.assertEquals(expectedPerPage, actualOutput.perPage());
         Assertions.assertEquals(expectedTotal, actualOutput.total());
         Assertions.assertEquals(expectedItems, actualOutput.items());
+
+        verify(genreGateway).findAll(any());
     }
 }

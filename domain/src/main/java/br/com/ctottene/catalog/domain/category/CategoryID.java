@@ -4,7 +4,6 @@ import br.com.ctottene.catalog.domain.Identifier;
 import br.com.ctottene.catalog.domain.utils.IdUtils;
 
 import java.util.Objects;
-import java.util.UUID;
 
 public class CategoryID extends Identifier {
 
@@ -26,7 +25,7 @@ public class CategoryID extends Identifier {
 
     @Override
     public String getValue() {
-        return value;
+        return this.value;
     }
 
     @Override

@@ -6,8 +6,8 @@ import br.com.ctottene.catalog.domain.validation.Validator;
 
 public class GenreValidator extends Validator {
 
-    public static final int NAME_MIN_LENGTH = 1;
-    public static final int NAME_MAX_LENGTH = 255;
+    private static final int NAME_MIN_LENGTH = 1;
+    private static final int NAME_MAX_LENGTH = 255;
     private final Genre genre;
     public GenreValidator(final Genre aGenre, final ValidationHandler aHandler) {
         super(aHandler);
@@ -31,7 +31,7 @@ public class GenreValidator extends Validator {
         }
         final int length = name.trim().length();
         if (length < NAME_MIN_LENGTH || length > NAME_MAX_LENGTH) {
-            this.validationHandler().append(new Error("'name' must between 1 and 255 characters"));
+            this.validationHandler().append(new Error("'name' must be between 1 and 255 characters"));
         }
     }
 }

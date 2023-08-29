@@ -17,7 +17,7 @@ import br.com.ctottene.catalog.infrastructure.category.models.CategoryListRespon
 import br.com.ctottene.catalog.infrastructure.category.models.CategoryResponse;
 import br.com.ctottene.catalog.infrastructure.category.models.CreateCategoryRequest;
 import br.com.ctottene.catalog.infrastructure.category.models.UpdateCategoryRequest;
-import br.com.ctottene.catalog.infrastructure.category.presenters.CategoryAPIPresenter;
+import br.com.ctottene.catalog.infrastructure.category.presenters.CategoryPresenter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -67,12 +67,12 @@ public class CategoryController implements CategoryAPI {
     @Override
     public Pagination<CategoryListResponse> listCategories(String search, int page, int perPage, String sort, String dir) {
         return this.listCategoriesUseCase.execute(new SearchQuery(page, perPage, search, sort, dir))
-                .map(CategoryAPIPresenter::present);
+                .map(CategoryPresenter::present);
     }
 
     @Override
     public CategoryResponse getById(String id) {
-        return CategoryAPIPresenter.present(this.getCategoryByIdUseCase.execute(id));
+        return CategoryPresenter.present(this.getCategoryByIdUseCase.execute(id));
     }
 
     @Override

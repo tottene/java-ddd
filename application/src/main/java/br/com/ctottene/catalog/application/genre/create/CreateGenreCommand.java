@@ -9,10 +9,10 @@ public record CreateGenreCommand(
 
 ) {
     public static CreateGenreCommand with(
-            final String aName,
+            final String name,
             final Boolean isActive,
-            final List<String> aCategories
+            final List<String> categories
     ) {
-        return new CreateGenreCommand(aName, isActive != null ? isActive : true, aCategories);
+        return new CreateGenreCommand(name, isActive != null ? isActive : true, categories);
     }
 }

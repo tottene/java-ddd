@@ -14,7 +14,7 @@ import br.com.ctottene.catalog.infrastructure.genre.models.CreateGenreRequest;
 import br.com.ctottene.catalog.infrastructure.genre.models.GenreListResponse;
 import br.com.ctottene.catalog.infrastructure.genre.models.GenreResponse;
 import br.com.ctottene.catalog.infrastructure.genre.models.UpdateGenreRequest;
-import br.com.ctottene.catalog.infrastructure.genre.presenters.GenreAPIPresenter;
+import br.com.ctottene.catalog.infrastructure.genre.presenters.GenrePresenter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -60,12 +60,12 @@ public class GenreController implements GenreAPI {
     @Override
     public Pagination<GenreListResponse> listGenres(final String search, int page, int perPage, String sort, String dir) {
         return this.listGenresUseCase.execute(new SearchQuery(page, perPage, search, sort, dir))
-                .map(GenreAPIPresenter::present);
+                .map(GenrePresenter::present);
     }
 
     @Override
     public GenreResponse getById(final String id) {
-        return GenreAPIPresenter.present(this.getGenreByIdUseCase.execute(id));
+        return GenrePresenter.present(this.getGenreByIdUseCase.execute(id));
     }
 
     @Override

@@ -3,7 +3,7 @@ package br.com.ctottene.catalog.e2e.category;
 import br.com.ctottene.catalog.E2ETest;
 import br.com.ctottene.catalog.e2e.MockDsl;
 import br.com.ctottene.catalog.infrastructure.category.models.UpdateCategoryRequest;
-import br.com.ctottene.catalog.infrastructure.category.persistance.CategoryRepository;
+import br.com.ctottene.catalog.infrastructure.category.persistence.CategoryRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

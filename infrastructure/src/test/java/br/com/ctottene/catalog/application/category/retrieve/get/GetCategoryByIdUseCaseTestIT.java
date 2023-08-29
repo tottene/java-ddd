@@ -5,21 +5,17 @@ import br.com.ctottene.catalog.domain.category.Category;
 import br.com.ctottene.catalog.domain.category.CategoryGateway;
 import br.com.ctottene.catalog.domain.category.CategoryID;
 import br.com.ctottene.catalog.domain.exceptions.NotFoundException;
-import br.com.ctottene.catalog.infrastructure.category.persistance.CategoryJpaEntity;
-import br.com.ctottene.catalog.infrastructure.category.persistance.CategoryRepository;
+import br.com.ctottene.catalog.infrastructure.category.persistence.CategoryJpaEntity;
+import br.com.ctottene.catalog.infrastructure.category.persistence.CategoryRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.SpyBean;
 
 import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doThrow;
-import static org.mockito.Mockito.when;
 
 @IntegrationTest
 public class GetCategoryByIdUseCaseTestIT {

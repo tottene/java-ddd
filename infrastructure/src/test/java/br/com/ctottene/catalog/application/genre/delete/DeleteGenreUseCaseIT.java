@@ -4,7 +4,7 @@ import br.com.ctottene.catalog.IntegrationTest;
 import br.com.ctottene.catalog.domain.genre.Genre;
 import br.com.ctottene.catalog.domain.genre.GenreGateway;
 import br.com.ctottene.catalog.domain.genre.GenreID;
-import br.com.ctottene.catalog.infrastructure.genre.persistance.GenreRepository;
+import br.com.ctottene.catalog.infrastructure.genre.persistence.GenreRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

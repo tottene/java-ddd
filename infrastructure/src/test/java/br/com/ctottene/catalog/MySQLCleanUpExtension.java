@@ -1,7 +1,8 @@
 package br.com.ctottene.catalog;
 
-import br.com.ctottene.catalog.infrastructure.category.persistance.CategoryRepository;
-import br.com.ctottene.catalog.infrastructure.genre.persistance.GenreRepository;
+import br.com.ctottene.catalog.infrastructure.castmember.persistence.CastMemberRepository;
+import br.com.ctottene.catalog.infrastructure.category.persistence.CategoryRepository;
+import br.com.ctottene.catalog.infrastructure.genre.persistence.GenreRepository;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.springframework.data.repository.CrudRepository;
@@ -17,7 +18,8 @@ public class MySQLCleanUpExtension implements BeforeEachCallback {
 
         cleanUp(List.of(
                 applicationContext.getBean(GenreRepository.class),
-                applicationContext.getBean(CategoryRepository.class)
+                applicationContext.getBean(CategoryRepository.class),
+                applicationContext.getBean(CastMemberRepository.class)
         ));
     }
 

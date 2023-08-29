@@ -2,8 +2,6 @@ package br.com.ctottene.catalog.infrastructure.genre.persistence;
 
 import br.com.ctottene.catalog.MySQLGatewayTest;
 import br.com.ctottene.catalog.domain.genre.Genre;
-import br.com.ctottene.catalog.infrastructure.genre.persistance.GenreJpaEntity;
-import br.com.ctottene.catalog.infrastructure.genre.persistance.GenreRepository;
 import org.hibernate.PropertyValueException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -19,7 +17,7 @@ public class GenreRepositoryTest {
     @Test
     public void giveAnInvalidName_whenCallsSave_shouldReturnError() {
         final var expectedPropertyName = "name";
-        final var expectedMessageError = "not-null property references a null or transient value : br.com.ctottene.catalog.infrastructure.genre.persistance.GenreJpaEntity.name";
+        final var expectedMessageError = "not-null property references a null or transient value : br.com.ctottene.catalog.infrastructure.genre.persistence.GenreJpaEntity.name";
 
         final var aGenre = Genre.newGenre("Action",true);
 
@@ -40,7 +38,7 @@ public class GenreRepositoryTest {
     @Test
     public void giveAnInvalidCreatedAt_whenCallsSave_shouldReturnError() {
         final var expectedPropertyName = "createdAt";
-        final var expectedMessageError = "not-null property references a null or transient value : br.com.ctottene.catalog.infrastructure.genre.persistance.GenreJpaEntity.createdAt";
+        final var expectedMessageError = "not-null property references a null or transient value : br.com.ctottene.catalog.infrastructure.genre.persistence.GenreJpaEntity.createdAt";
 
         final var aGenre = Genre.newGenre("Movies",true);
 
@@ -61,7 +59,7 @@ public class GenreRepositoryTest {
     @Test
     public void giveAnInvalidUpdatedAt_whenCallsSave_shouldReturnError() {
         final var expectedPropertyName = "updatedAt";
-        final var expectedMessageError = "not-null property references a null or transient value : br.com.ctottene.catalog.infrastructure.genre.persistance.GenreJpaEntity.updatedAt";
+        final var expectedMessageError = "not-null property references a null or transient value : br.com.ctottene.catalog.infrastructure.genre.persistence.GenreJpaEntity.updatedAt";
 
         final var aGenre = Genre.newGenre("Movies", true);
 

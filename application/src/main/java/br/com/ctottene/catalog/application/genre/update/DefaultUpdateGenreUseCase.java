@@ -29,26 +29,26 @@ public class DefaultUpdateGenreUseCase extends UpdateGenreUseCase {
     }
 
     @Override
-    public UpdateGenreOutput execute(final UpdateGenreCommand aCommand) {
-        final var anId = GenreID.from(aCommand.id());
-        final var aName = aCommand.name();
-        final var isActive = aCommand.isActive();
-        final var categories = toCategoryId(aCommand.categories());
+    public UpdateGenreOutput execute(final UpdateGenreCommand command) {
+        final var id = GenreID.from(command.id());
+        final var name = command.name();
+        final var isActive = command.isActive();
+        final var categories = toCategoryId(command.categories());
 
-        final var aGenre = this.genreGateway.findById(anId)
-                .orElseThrow(notFound(anId));
+        final var genre = this.genreGateway.findById(id)
+                .orElseThrow(notFound(id));
 
         final var notification = Notification.create();
         notification.append(validateCategories(categories));
-        notification.validate(() -> aGenre.update(aName, isActive, categories));
+        notification.validate(() -> genre.update(name, isActive, categories));
 
         if (notification.hasError()) {
             throw new NotificationException(
-                    "Could not update Aggregate Genre %s".formatted(aCommand.id()), notification
+                    "Could not update Aggregate Genre %s".formatted(command.id()), notification
             );
         }
 
-        return UpdateGenreOutput.from(this.genreGateway.update(aGenre));
+        return UpdateGenreOutput.from(this.genreGateway.update(genre));
     }
 
     private ValidationHandler validateCategories(List<CategoryID> ids) {
@@ -73,8 +73,8 @@ public class DefaultUpdateGenreUseCase extends UpdateGenreUseCase {
         return notification;
     }
 
-    private static Supplier<NotFoundException> notFound(final Identifier anId) {
-        return () -> NotFoundException.with(Genre.class, anId);
+    private static Supplier<NotFoundException> notFound(final Identifier id) {
+        return () -> NotFoundException.with(Genre.class, id);
     }
 
     private List<CategoryID> toCategoryId(final List<String> categories) {

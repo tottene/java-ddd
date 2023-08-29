@@ -30,7 +30,7 @@ public class GenreTest {
     }
 
     @Test
-    public void givenInvalidNullName_whenCallNewGenreAndValidate_shouldReceiveAError() {
+    public void givenInvalidNullName_whenCallNewGenreAndValidate_shouldReceiveAnError() {
         final var expectedErrorCount = 1;
         final var expectedErrorMessage = "'name' should not be null";
         final var expectedIsActive = true;
@@ -43,7 +43,7 @@ public class GenreTest {
     }
 
     @Test
-    public void givenInvalidEmptyName_whenCallNewGenreAndValidate_shouldReceiveAError() {
+    public void givenInvalidEmptyName_whenCallNewGenreAndValidate_shouldReceiveAnError() {
         final var expectedName = "  ";
         final var expectedErrorCount = 1;
         final var expectedErrorMessage = "'name' should not be empty";
@@ -64,7 +64,7 @@ public class GenreTest {
             Richard McClintock, um professor de latim do Hampden-Sydney College na Virginia
             """;
         final var expectedErrorCount = 1;
-        final var expectedErrorMessage = "'name' must between 1 and 255 characters";
+        final var expectedErrorMessage = "'name' must be between 1 and 255 characters";
         final var expectedIsActive = true;
 
         final var actualException = Assertions.assertThrows(NotificationException.class, () -> Genre.newGenre(expectedName, expectedIsActive));

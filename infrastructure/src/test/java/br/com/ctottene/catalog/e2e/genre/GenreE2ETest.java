@@ -4,7 +4,7 @@ import br.com.ctottene.catalog.E2ETest;
 import br.com.ctottene.catalog.domain.category.CategoryID;
 import br.com.ctottene.catalog.e2e.MockDsl;
 import br.com.ctottene.catalog.infrastructure.genre.models.UpdateGenreRequest;
-import br.com.ctottene.catalog.infrastructure.genre.persistance.GenreRepository;
+import br.com.ctottene.catalog.infrastructure.genre.persistence.GenreRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -25,10 +25,10 @@ public class DefaultCreateGenreUseCase extends CreateGenreUseCase {
     }
 
     @Override
-    public CreateGenreOutput execute(final CreateGenreCommand aCommand) {
-        final var aName = aCommand.name();
-        final var isActive = aCommand.isActive();
-        final var aCategories = toCategoryID(aCommand.categories());
+    public CreateGenreOutput execute(final CreateGenreCommand command) {
+        final var aName = command.name();
+        final var isActive = command.isActive();
+        final var aCategories = toCategoryID(command.categories());
 
         final var notification = Notification.create();
         notification.append(validateCategories(aCategories));

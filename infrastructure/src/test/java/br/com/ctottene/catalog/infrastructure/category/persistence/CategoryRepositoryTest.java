@@ -2,8 +2,6 @@ package br.com.ctottene.catalog.infrastructure.category.persistence;
 
 import br.com.ctottene.catalog.domain.category.Category;
 import br.com.ctottene.catalog.MySQLGatewayTest;
-import br.com.ctottene.catalog.infrastructure.category.persistance.CategoryJpaEntity;
-import br.com.ctottene.catalog.infrastructure.category.persistance.CategoryRepository;
 import org.hibernate.PropertyValueException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -19,7 +17,7 @@ public class CategoryRepositoryTest {
     @Test
     public void giveAnInvalidName_whenCallsSave_shouldReturnError() {
         final var expectedPropertyName = "name";
-        final var expectedMessageError = "not-null property references a null or transient value : br.com.ctottene.catalog.infrastructure.category.persistance.CategoryJpaEntity.name";
+        final var expectedMessageError = "not-null property references a null or transient value : br.com.ctottene.catalog.infrastructure.category.persistence.CategoryJpaEntity.name";
 
         final var aCategory = Category.newCategory("Movies", "Most watched category", true);
 
